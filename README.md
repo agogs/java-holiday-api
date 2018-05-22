@@ -13,6 +13,15 @@ You can download the pre-configured configuration file from the directory `<proj
 
 **Usage:**
 
+**Maven dependency**
+```
+<dependency>
+    <groupId>com.github.agogs</groupId>
+    <artifactId>java-holiday-api</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+**Sample java code**
 ```java
         //create a consumer
         APIConsumer consumer = new HolidayAPIConsumer("https://holidayapi.com/v1/holidays");

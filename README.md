@@ -13,7 +13,7 @@ You can download the pre-configured configuration file from the directory `<proj
 
 **Usage:**
 
-```
+```java
         //create a consumer
         APIConsumer consumer = new HolidayAPIConsumer("https://holidayapi.com/v1/holidays");
 

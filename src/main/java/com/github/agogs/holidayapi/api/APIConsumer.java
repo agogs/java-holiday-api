@@ -2,7 +2,6 @@ package com.github.agogs.holidayapi.api;
 
 import com.github.agogs.holidayapi.model.HolidayAPIResponse;
 import com.github.agogs.holidayapi.model.QueryParams;
-
 import java.io.IOException;
 
 /**

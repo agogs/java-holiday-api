@@ -12,6 +12,7 @@ import java.io.IOException;
 public abstract class MockResponse {
 
     private static ObjectMapper mapper = new ObjectMapper();
+
     //Only the status code is important, the error message is irrelevant for testing
     public static String RESPONSE_200 = "{\"status\":200,\"holidays\":[{\"name\":\"May Day\",\"date\":\"2017-05-01\",\"observed\":\"2017-05-01\",\"public\":false}]}";
     public static String RESPONSE_400 = "{\"status\":400,\"error\":\"Something went wrong on your end\"}";

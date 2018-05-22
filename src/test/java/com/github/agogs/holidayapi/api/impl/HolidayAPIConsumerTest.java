@@ -15,6 +15,19 @@ import java.io.IOException;
 
 import static com.github.agogs.holidayapi.api.testutil.MockResponse.*;
 
+/**
+ * Test the behaviour of the methods implemented in {@link HolidayAPIConsumer}.
+ * <p>Each test method tests for a response code of the API. The responses for the following response codes are tested.</p>
+ * <ul>
+ *     <li>200</li>
+ *     <li>400</li>
+ *     <li>401</li>
+ *     <li>402</li>
+ *     <li>403</li>
+ *     <li>429</li>
+ *     <li>500</li>
+ * </ul>
+ */
 public class HolidayAPIConsumerTest {
 
     @Mock

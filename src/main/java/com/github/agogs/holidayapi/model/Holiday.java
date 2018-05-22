@@ -33,6 +33,6 @@ public class Holiday {
     @JsonProperty("public")
     @Getter
     @Setter
-    private Boolean _public;
+    private Boolean isPublic;
 
 }

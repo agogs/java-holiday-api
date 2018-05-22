@@ -60,8 +60,8 @@ public class QueryParams {
         return this;
     }
 
-    public QueryParams isPublic(boolean _public) {
-        params.put(PUBLIC.toString(), _public);
+    public QueryParams isPublic(boolean isPublic) {
+        params.put(PUBLIC.toString(), isPublic);
         return this;
     }
 
@@ -77,7 +77,7 @@ public class QueryParams {
 
     /**
      * Return the query string
-     * @return
+     * @return - return the query string
      */
     public String queryString() {
 
@@ -150,7 +150,7 @@ public class QueryParams {
         SWITZERLAND("CH"),
         CHINA("CN"),
         COLOMBIA("CO"),
-        Costa_Rica("CR"),
+        COSTA_RICA("CR"),
         CUBA("CU"),
         CZECH_REPUBLIC("CZ"),
         GERMANY("DE"),
@@ -215,14 +215,14 @@ public class QueryParams {
         SOUTH_AFRICA("ZA"),
         ZIMBABWE("ZW");
 
-        private String country;
+        private String countryCode;
 
-        Country(String country) {
-            this.country = country;
+        Country(String countryCode) {
+            this.countryCode = countryCode;
         }
 
         public String code() {
-            return this.country;
+            return this.countryCode;
         }
     }
 

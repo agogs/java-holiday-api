@@ -25,8 +25,6 @@ public class HolidayAPIConsumer implements APIConsumer {
 
     //store the base url in a variable for later use
     private String baseURl;
-    //to make a https connection
-    private URLConnection connection;
 
     /**
      * Parameterized constructor

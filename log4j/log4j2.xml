@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30">
+    <Properties>
+        <Property name="log-pattern">%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+        </Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="${log-pattern}"/>
+        </Console>
+        <RollingFile name="rollingFileAppender"
+                     fileName="logs/holiday-api-consumer.log"
+                     filePattern="logs/holiday-api-consumer.log.%d{yyyy-MM-dd-hh}.gz">
+            <PatternLayout pattern="${log-pattern}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+    </Appenders>
+
+    <!-- Logger levels: TRACE, DEBUG, INFO, WARN, ERROR, FATAL -->
+    <Loggers>
+        <AsyncLogger name="com.github.agogs.holidayapi" level="DEBUG" additivity="false" includeLocation="true">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="rollingFileAppender"/>
+        </AsyncLogger>
+
+        <Root level="INFO">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="rollingFileAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>

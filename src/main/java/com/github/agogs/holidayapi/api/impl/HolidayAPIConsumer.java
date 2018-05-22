@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.agogs.holidayapi.api.APIConsumer;
 import com.github.agogs.holidayapi.model.HolidayAPIResponse;
 import com.github.agogs.holidayapi.model.QueryParams;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
@@ -19,6 +21,8 @@ import java.net.URLConnection;
  */
 public class HolidayAPIConsumer implements APIConsumer {
 
+    private static final Logger log = LogManager.getLogger(HolidayAPIConsumer.class);
+
     //store the base url in a variable for later use
     private String baseURl;
     //to make a https connection
@@ -26,9 +30,11 @@ public class HolidayAPIConsumer implements APIConsumer {
 
     /**
      * Parameterized constructor
+     *
      * @param baseURl - the base url of the API
      */
     public HolidayAPIConsumer(String baseURl) {
+        log.debug("instantiating with base url : {}", baseURl);
         this.baseURl = baseURl;
     }
 
@@ -44,13 +50,23 @@ public class HolidayAPIConsumer implements APIConsumer {
     @Override
     public HolidayAPIResponse getHolidays(QueryParams queryParams) throws IOException {
 
+        log.info("get holidays API call with query params {}", queryParams.toString());
+
         //get the response string
         String json = getHolidaysAsString(queryParams);
+
+        log.info("got json string response");
+        log.debug("got json string response : {}", json);
+
         //ObjectMapper to map the json string to a java object
         ObjectMapper mapper = new ObjectMapper();
 
+        HolidayAPIResponse response = mapper.readValue(json, HolidayAPIResponse.class);
+
+        log.info("returning response");
+        log.debug("returning response : {}", response);
         //map and return the response encapsulated in HolidayAPIResponse object
-        return mapper.readValue(json, HolidayAPIResponse.class);
+        return response;
     }
 
     /**
@@ -63,9 +79,13 @@ public class HolidayAPIConsumer implements APIConsumer {
     @Override
     public String getHolidaysAsString(QueryParams queryParams) throws IOException {
 
+        log.info("get holidays API call with query params {}", queryParams.toString());
+
+        log.info("constructing url with query param string");
         //construct the complete url
         URL url = new URL(this.baseURl + "?" + queryParams.queryString());
 
+        log.info("connecting to API endpoint");
         //attempt the https connection
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.connect();
@@ -76,23 +96,29 @@ public class HolidayAPIConsumer implements APIConsumer {
         String line = null;
 
         int responseCode = connection.getResponseCode();
+        log.info("response code : {}", responseCode);
 
         //check for the response code
-        if ( responseCode == 200) {
+        if (responseCode == 200) {
+            log.info("preparing to read content from inputstream");
             //read from inputstream if response code is 200
             bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         } else {
+            log.info("preparing to read content from errorstream");
             //read from errorstream when the response code is not 200
             bufferedReader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
         }
 
+        log.info("reading response content");
         //read the contents of the response
         while ((line = bufferedReader.readLine()) != null) {
             builder.append(line);
         }
         bufferedReader.close();
+        String response = builder.toString();
 
+        log.info("returning response string {}", response);
         //return the response
-        return builder.toString();
+        return response;
     }
 }

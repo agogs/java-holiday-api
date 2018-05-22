@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.agogs</groupId>
     <artifactId>java-holiday-api</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <description>Your project description here</description>
     <name>${project.groupId}:${project.artifactId}</name>
@@ -28,7 +28,7 @@
         <url>https://github.com/agogs/securekey-maven-plugin</url>
         <connection>scm:git:git@github.com:agogs/securekey-maven-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:agogs/project-name.git</developerConnection>
-        <tag>java-holiday-api-1.0</tag>
+        <tag>securekey-maven-plugin-1.0</tag>
     </scm>
 
     <properties>

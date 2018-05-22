@@ -4,7 +4,7 @@
 
 A java client library for https://holidayapi.com/
 
-The API provider doesn't have a java client library, so I developed one and it is very simple to use.
+The API provider doesn't have a java client library, so I developed one and it is very simple to use. Lookup https://holidayapi.com/ for required and optional parameters
 
 **Usage:**
 

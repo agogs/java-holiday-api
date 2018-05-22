@@ -18,21 +18,21 @@ public class Holiday {
     @JsonProperty("name")
     @Getter
     @Setter
-    public String name;
+    private String name;
 
     @JsonProperty("date")
     @Getter
     @Setter
-    public String date;
+    private String date;
 
     @JsonProperty("observed")
     @Getter
     @Setter
-    public String observed;
+    private String observed;
 
     @JsonProperty("public")
     @Getter
     @Setter
-    public Boolean _public;
+    private Boolean _public;
 
 }

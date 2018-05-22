@@ -23,17 +23,17 @@ public class HolidayAPIResponse {
     @JsonProperty("status")
     @Getter
     @Setter
-    public Integer status;
+    private Integer status;
 
     @JsonProperty("holidays")
     @Getter
     @Setter
-    public List<Holiday> holidays;
+    private List<Holiday> holidays;
 
     @JsonProperty("error")
     @Getter
     @Setter
-    public String error;
+    private String error;
 
     @Override
     public String toString() {

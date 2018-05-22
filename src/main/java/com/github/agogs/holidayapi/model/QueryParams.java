@@ -4,8 +4,19 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import static com.github.agogs.holidayapi.model.QueryParams.APIParameters.*;
+import static com.github.agogs.holidayapi.model.QueryParams.APIParameter.*;
 
+/**
+ * This class is used to encapsulate the query parameters for the API call.
+ * The methods can be chained together for easier and readable coding
+ *
+ * This class also provides the following enums which is associated with the parameter values.
+ * <ul>
+ *     <li>{@link APIParameter} - enumeration of keys for allowed parameters</li>
+ *     <li>{@link Country} - enumeration of allowed country codes for the parameter <code>{@link APIParameter#COUNTRY}</code></li>
+ *     <li>{@link Format} - enumeration of available response formats</li>
+ * </ul>
+ */
 public class QueryParams {
 
     private Map<String, Object> params;
@@ -64,6 +75,10 @@ public class QueryParams {
         return this;
     }
 
+    /**
+     * Return the query string
+     * @return
+     */
     public String queryString() {
 
         if (params.isEmpty()) {
@@ -88,7 +103,10 @@ public class QueryParams {
         return queryString();
     }
 
-    public enum APIParameters {
+    /**
+     * Enumeration of allowed query parameters
+     */
+    public enum APIParameter {
         API_KEY("key"),
         COUNTRY("country"),
         YEAR("year"),
@@ -102,7 +120,7 @@ public class QueryParams {
 
         private String param;
 
-        APIParameters(String param) {
+        APIParameter(String param) {
             this.param = param;
         }
 
@@ -112,41 +130,44 @@ public class QueryParams {
         }
     }
 
+    /**
+     * Enumeration of allowed country codes for the parameter {@link APIParameter#COUNTRY}
+     */
     public enum Country {
         ARGENTINA("AR"),
         ANGOLA("AO"),
         AUSTRIA("AT"),
         AUSTRALIA("AU"),
         ARUBA("AW"),
-        Åland_Islands("AX"),
-        Bosnia_and_Herzegovina("BA"),
+        ÅLAND_ISLANDS("AX"),
+        BOSNIA_AND_HERZEGOVINA("BA"),
         BELGIUM("BE"),
         BULGARIA("BG"),
         BOLIVIA("BO"),
         BRAZIL("BR"),
-        The_Bhamas("BS"),
+        THE_BHAMAS("BS"),
         CANADA("CA"),
         SWITZERLAND("CH"),
         CHINA("CN"),
         COLOMBIA("CO"),
         Costa_Rica("CR"),
         CUBA("CU"),
-        Czech_Republic("CZ"),
+        CZECH_REPUBLIC("CZ"),
         GERMANY("DE"),
         DENMARK("DK"),
-        Dominican_Republic("DO"),
+        DOMINICAN_REPUBLIC("DO"),
         ECUADOR("EC"),
         SPAIN("ES"),
         FINLAND("FI"),
         FRANCE("FR"),
-        United_Kingdom("GB"),
+        UNITED_KINGDOM("GB"),
         ENGLAND("GB-ENG"),
-        Northern_Ireland("GB-NIR"),
+        NORTHERN_IRELAND("GB-NIR"),
         SCOTLAND("GB-SCT"),
         WALES("GB-WLS"),
         GREECE("GR"),
         GUATEMALA("GT"),
-        Hong_Kong("HK"),
+        HONG_KONG("HK"),
         HONDURAS("HN"),
         CROATIA("HR"),
         HUNGARY("HU"),
@@ -173,7 +194,7 @@ public class QueryParams {
         PAKISTAN("PK"),
         PHILIPPINES("PH"),
         POLAND("PL"),
-        Puerto_Rico("PR"),
+        PUERTO_RICO("PR"),
         PORTUGAL("PT"),
         PARAGUAY("PY"),
         RéUNION("RE"),
@@ -183,15 +204,15 @@ public class QueryParams {
         SWEDEN("SE"),
         SINGAPORE("SG"),
         SLOVENIA("SI"),
-        Sao_Tome_and_Principe("ST"),
+        SAO_TOME_AND_PRINCIPE("ST"),
         SLOVAKIA("SK"),
         TUNISIA("TN"),
         TURKEY("TR"),
         UKRAINE("UA"),
-        United_States("US"),
+        UNITED_STATES("US"),
         URUGUAY("UY"),
         VENEZUELA("VE"),
-        South_Africa("ZA"),
+        SOUTH_AFRICA("ZA"),
         ZIMBABWE("ZW");
 
         private String country;
@@ -205,6 +226,9 @@ public class QueryParams {
         }
     }
 
+    /**
+     * Enumeration for allowed values for the query parameter {@link APIParameter#FORMAT}
+     */
     public enum Format {
         STRING("string"),
         CSV("csv"),

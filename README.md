@@ -5,13 +5,19 @@
 A java client library for https://holidayapi.com/
 
 The API provider doesn't have a java client library, so I developed one and it is very simple to use. Lookup https://holidayapi.com/ for required and optional parameters
+***
 
-**Logging**: The application uses log4j to log events. 
+**Logging**
+***
+ The application uses log4j to log events. 
+
 Provide the logging configuration by having the file log4j.xml in the classpath. 
 
 You can download the pre-configured configuration file from the directory `<project_root>/log4j/log4j2.xml` 
 
+****
 **Usage:**
+***
 
 **Maven dependency**
 ```
@@ -59,3 +65,8 @@ You can download the pre-configured configuration file from the directory `<proj
             //handle exception
         }
 ```
+***
+### LICENSE
+#### GNU General Public License v3.0
+
+Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.

@@ -13,19 +13,31 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-import static com.github.agogs.holidayapi.api.testutil.MockResponse.*;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.RESPONSE_200;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.RESPONSE_400;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.RESPONSE_401;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.RESPONSE_403;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.RESPONSE_429;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.RESPONSE_500;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.response200;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.response400;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.response401;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.response402;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.response403;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.response429;
+import static com.github.agogs.holidayapi.api.testutil.MockResponse.response500;
 
 /**
  * Test the behaviour of the methods implemented in {@link HolidayAPIConsumer}.
  * <p>Each test method tests for a response code of the API. The responses for the following response codes are tested.</p>
  * <ul>
- *     <li>200</li>
- *     <li>400</li>
- *     <li>401</li>
- *     <li>402</li>
- *     <li>403</li>
- *     <li>429</li>
- *     <li>500</li>
+ * <li>200</li>
+ * <li>400</li>
+ * <li>401</li>
+ * <li>402</li>
+ * <li>403</li>
+ * <li>429</li>
+ * <li>500</li>
  * </ul>
  */
 public class HolidayAPIConsumerTest {
@@ -49,7 +61,6 @@ public class HolidayAPIConsumerTest {
         Assert.assertTrue(response != null, "Response is null");
         Assert.assertTrue(response.getStatus() == 200, "Response code is NOT 200");
         Assert.assertTrue(response.getError() == null, "error message is NOT null");
-
     }
 
     @Test

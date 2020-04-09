@@ -14,7 +14,9 @@ public abstract class MockResponse {
     private static ObjectMapper mapper = new ObjectMapper();
 
     //Only the status code is important, the error message is irrelevant for testing
-    public static String RESPONSE_200 = "{\"status\":200,\"holidays\":[{\"name\":\"May Day\",\"date\":\"2017-05-01\",\"observed\":\"2017-05-01\",\"public\":false}]}";
+    public static String RESPONSE_200 = "{\"status\":200,\"holidays\":[{\"name\":\"May Day\",\"date\":\"2017-05-01\",\"observed\":\"2017-05-01\",\"public\":false, " +
+            "\"country\":\"RO\", \"uuid\":\"e84e6430-a789-4a49-9bbd-76edbf8cf34\"}], \"warning\":\"Warning message\", \"requests\":{\"used\":5,\"remaining\":9995, " +
+            "\"resets\":\"2020-05-01 00:00:0\"}}";
     public static String RESPONSE_400 = "{\"status\":400,\"error\":\"Something went wrong on your end\"}";
     public static String RESPONSE_401 = "{\"status\":401,\"error\":\"Unauthorized\"}";
     public static String RESPONSE_402 = "{\"status\":402,\"error\":\"Payment required\"}";

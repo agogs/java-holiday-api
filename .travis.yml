@@ -1,5 +1,5 @@
 language: java
-jdk: openjdk
+jdk: openjdk8
 addons:
   apt:
     update: true

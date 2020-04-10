@@ -24,7 +24,7 @@ You can download the pre-configured configuration file from the directory `<proj
 <dependency>
     <groupId>com.github.agogs</groupId>
     <artifactId>java-holiday-api</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 </dependency>
 ```
 **Sample java code**
